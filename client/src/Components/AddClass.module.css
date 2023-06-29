@@ -1,0 +1,26 @@
+.btn {
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+.form {
+  justify-content: center;
+  width: 700px;
+  height: auto;
+  -webkit-box-shadow: 7px 11px 38px -3px rgba(5, 5, 5, 1);
+  -moz-box-shadow: 7px 11px 38px -3px rgba(5, 5, 5, 1);
+  box-shadow: 7px 11px 38px -3px rgba(5, 5, 5, 1);
+  padding: auto;
+  margin: auto;
+  margin-top: 50px;
+  display: grid;
+  background-color: white;
+ 
+ 
+}
+.form p{
+  color: red;
+}
+/* 
+body{
+   background: linear-gradient(109.6deg, rgba(62,161,219,1) 11.2%, rgba(93,52,236,1) 100.2%);
+} */

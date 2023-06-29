@@ -1,0 +1,41 @@
+.signup-container {
+  width: 500px;
+  -webkit-box-shadow: 7px 11px 38px -3px rgba(5, 5, 5, 1);
+  -moz-box-shadow: 7px 11px 38px -3px rgba(5, 5, 5, 1);
+  box-shadow: 7px 11px 38px -3px rgba(5, 5, 5, 1);
+  padding: auto;
+  margin: auto;
+}
+
+.signup-form {
+  width: auto;
+  margin-top: 50px;
+}
+
+label {
+  display: flex;
+}
+
+.container-label {
+  display: contents;
+
+}
+
+.form {
+  display: grid;
+  width: max-content;
+  margin: auto;
+}
+.form p{
+  color: red;
+}
+
+
+/* .input {
+  margin-bottom: 40px;
+} */
+
+.btn {
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
