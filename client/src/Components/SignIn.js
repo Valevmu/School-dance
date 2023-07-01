@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import styles from './SignIn.module.css'
+import styles from '../Styles/SignIn.module.css'
 import Button from "react-bootstrap/Button";
 import { useForm } from "react-hook-form";
 import axios from 'axios'

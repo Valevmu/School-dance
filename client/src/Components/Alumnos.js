@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import styles from "./Alumnos.module.css";
+import styles from "../Styles/Alumnos.module.css";
 import axios from "axios";
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
