@@ -7,10 +7,10 @@
     padding: 1rem 2.5rem;
     position: fixed;
     top: 0;
+    z-index: 1;
     width: 100%;
     overflow: scroll;
-    margin-bottom: 1rem;
-    background: rgba(71, 17, 223, 0.82);
+    background: rgb(14 9 66 / 82%);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
@@ -45,7 +45,7 @@
 }
 
 .tabs-navbar-group {
-    width: 30%;
+    width: 50%;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;

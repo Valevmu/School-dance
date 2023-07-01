@@ -4,61 +4,17 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
-import styles from "./Home.module.css";
-import Carousel from 'react-bootstrap/Carousel';
+import '../Styles/Home.css';
+import styles from './Home.module.css';
 import { FontAwesomeIcon } from 'react-icons';
 import { NavbarMUI } from "../Components/NavbarMUI";
+import { CarouselPhoto } from "../Components/CarouselPhoto";
 
 const Home = () => {
   return (
-    <div>
+    <div className="home-container">
       <NavbarMUI />
-      <div className={styles["container"]}>
-        <div className={styles["sub-container"]}>
-          <h1>Smart Teacher</h1>
-          <h2>Todos tus estudiantes en una sola aplicación</h2>
-        </div>
-        <div>
-          <Carousel>
-            <Carousel.Item interval={2000}>
-              <img
-                className="d-block w-200"
-                src="https://media.timeout.com/images/103238690/image.jpg"
-                alt="First slide"
-              />
-              <Carousel.Caption>
-                <h3>Un espacio de movimiento</h3>
-                <p></p>
-              </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item interval={2000}>
-              <img
-                className="d-block w-200 "
-                src="https://stardanze.com/wp-content/uploads/2016/02/MAG3180.jpg"
-                alt="Second slide"
-              />
-
-              <Carousel.Caption>
-                <h3>Creatividad</h3>
-                <p></p>
-              </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item>
-              <img
-                className="d-block w-200 h-10"
-                src='https://i.pinimg.com/originals/32/41/5e/32415e352126af97bfb6ad272b7eb777.jpg'
-                alt="Third slide"
-              />
-              <Carousel.Caption>
-                <h3>Expresión</h3>
-                <p>
-
-                </p>
-              </Carousel.Caption>
-            </Carousel.Item>
-          </Carousel>
-        </div>
-      </div>
+          <CarouselPhoto />
       <section className={styles["section-container"]}>
         <h1>Cursos</h1>
         <div className={styles['card']}>
