@@ -10,6 +10,7 @@ import AddClass from './Components/AddClass';
 import Alumnos from './Components/Alumnos';
 import ViewStudent from './Views/ViewStudent';
 import Edit from './Views/Edit';
+import { NavbarMUI } from './Components/NavbarMUI';
 
 
 
@@ -17,6 +18,7 @@ import Edit from './Views/Edit';
 function App() {
   return (
     <div className="App">
+      <NavbarMUI />
      <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/home" element={<Home />} />
