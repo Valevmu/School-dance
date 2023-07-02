@@ -1,6 +1,6 @@
 .home-container{
     background: rgb(73,19,224);
-background: linear-gradient(0deg, rgba(73,19,224,1) 12%, rgba(45,35,183,1) 50%, rgba(14,10,66,1) 87%);
+    background: linear-gradient(0deg, rgba(73,19,224,1) 12%, rgba(45,35,183,1) 50%, rgba(14,10,66,1) 87%);
 }
 
 .container-footer{
@@ -17,9 +17,26 @@ background: linear-gradient(0deg, rgba(73,19,224,1) 12%, rgba(45,35,183,1) 50%, 
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     border: 1px solid rgba(71, 17, 223, 0.3);
+    position: relative;
+    bottom: 0px;
 }
 
 .container-footer p {
     color: white;
     margin: 0;
 }
+
+.signup-container{
+    background: rgb(73,19,224);
+    background: linear-gradient(0deg, rgba(73,19,224,1) 12%, rgba(45,35,183,1) 50%, rgba(14,10,66,1) 87%);
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    width: -webkit-fill-available;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 10vh 5vw;
+}
+
+

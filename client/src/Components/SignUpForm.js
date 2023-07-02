@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import styles from "../Styles/SignUp.module.css";
+import '../Styles/SignUpForm.css'
 import { Link, useNavigate } from "react-router-dom";
 import  Button  from "react-bootstrap/Button";
 import axios from 'axios'
 
-const SignUp = () => {
+export const SignUpForm = () => {
   const navigate = useNavigate();
   const [newUser, setNewUser] = useState({
     email: "",
@@ -34,18 +34,18 @@ const SignUp = () => {
 
   }
   return (
-    <div className={styles["signup-container"]}>
-      <div className={styles["signup-form"]}>
-        <h1>Sign up</h1>
-        <form className={styles['form']} onSubmit={handleSubmit(onSubmit)}>
-          <div className={styles["container-label"]}>
-            <label>Email</label>
+    <>
+      <div className="signup-form">
+        <h1>REGÍSTRATE</h1>
+        <form className='form' onSubmit={handleSubmit(onSubmit)}>
+          <div className="container-label">
+            <label>Email:</label>
             <input
-              className={styles["input"]}
+              className="input"
               {...register("email", { required: true, minLenght: 5,pattern:{ value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i, message:"Ingresa un email valido"}  })}
               type="email"
               name="email"
-              placeholder="email"
+              placeholder="Email"
               value={newUser.email}
               onChange={handleForm}
             />
@@ -59,12 +59,12 @@ const SignUp = () => {
               <p role='alert'>Debes ingresar un email válido</p>
             )}
           </div>
-          <div className={styles["container-label"]}>
-            <label>Password</label>
+          <div className="container-label">
+            <label>Contraseña:</label>
             <input
               {...register("password", { required: true, minLenght: 5 })}
               type="password"
-              placeholder="password"
+              placeholder="Contraseña"
               name="password"
               value={newUser.password}
               onChange={handleForm}
@@ -76,12 +76,12 @@ const SignUp = () => {
               <p role="alert">Contraseña es requerida</p>
             )}
           </div>
-          <div className={styles["container-label"]}>
-            <label>Confirma tu contraseña</label>
+          <div className="container-label">
+            <label>Confirma tu contraseña:</label>
             <input
               {...register("confirmPassword", { required: true, minLenght: 5 })}
               type="password"
-              placeholder=" confirma password"
+              placeholder="Confirma tu contraseña"
               name="confirmPassword"
               value={newUser.confirmPassword}
               onChange={handleForm}
@@ -93,21 +93,19 @@ const SignUp = () => {
               <p role="alert">Contraseña es requerida</p>
             )}
           </div>
-          
-
-          <Button className={styles["btn"]} type="submit">
-            Sign up
-          </Button>
-          <h4>
-            ¿Ya eres miembro?
-            <Button variant="link">
-              <Link to="/sign-in">Sign-in</Link>
+          <div className="btn-signup">
+            <Button className="btn" type="submit">
+              Registrarse
             </Button>
-          </h4>
+          </div>
+          <h3 className="link-title">
+            ¿Ya eres miembro?
+          </h3>
+          <Link to="/sign-in" className="link-title">Inicia Sesion</Link>
         </form>
       </div>
-    </div>
+    </>
   );
 };
 
-export default SignUp;
+
