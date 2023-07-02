@@ -9,44 +9,14 @@ import styles from './Home.module.css';
 import { FontAwesomeIcon } from 'react-icons';
 import { NavbarMUI } from "../Components/NavbarMUI";
 import { CarouselPhoto } from "../Components/CarouselPhoto";
+import { Features } from "../Components/Features";
 
 const Home = () => {
   return (
     <div className="home-container">
       <NavbarMUI />
           <CarouselPhoto />
-      <section className={styles["section-container"]}>
-        <h1>Cursos</h1>
-        <div className={styles['card']}>
-          <img className={styles['images']} src="https://upload.wikimedia.org/wikipedia/commons/f/fc/B-boy_breakdancing.jpg" alt="hip hop">
-          </img><div className={styles['card-container']}>
-            <h4>Formulario de inscripción para tus alumnos</h4>
-            <p>Solo necesitas los datos de tus alumnos!</p>
-
-          </div>
-        </div>
-        <div className={styles['card']}>
-          <img className={styles['images']} src="https://dancemefree.files.wordpress.com/2018/06/house-dance.jpg" alt="house dance">
-          </img><div className={styles['card-container']}>
-            <h4>Fácil de usar</h4>
-            <p>Util herramienta para registar a tus estudiantes en tus clases!</p>
-          </div>
-        </div>
-
-        <div className={styles['card']}>
-          <img className={styles['images']} src="https://i.pinimg.com/736x/1d/b8/6c/1db86c57170c3b120021ad9fe3a99503--bosch.jpg" alt="locking">
-          </img><div className={styles['card-container']}>
-            <h4>Cursos disponibles</h4>
-
-            <li>Hip-hop</li>
-            <li>House</li>
-            <li>Locking</li>
-
-          </div>
-        </div>
-
-
-      </section>
+          <Features />
       <footer>
         <div className={styles["container-footer"]}>
           <p>
