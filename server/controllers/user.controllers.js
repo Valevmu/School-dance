@@ -8,13 +8,13 @@ module.exports.register = async (req, res) => {
     res.json({ User : newUser})
     
   } catch (error){
-    res.status(500).json({
+    res.status.json({
       msg: "Error al crear usuario",
       error
     })
-
   }
-}
+  }
+
 module.exports.login = async (req, res) => {
   const { email, password } = req.body;
 

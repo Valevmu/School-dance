@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
-const User = require('../models/user.model')
+const uri = "mongodb+srv://motorLab:Isimu.2023@cluster0.7zstrj7.mongodb.net/?retryWrites=true&w=majority"
 
 mongoose
-  .connect("mongodb://127.0.0.1/proyecto-final", {
+  .connect(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
