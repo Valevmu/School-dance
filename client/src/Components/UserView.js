@@ -86,11 +86,13 @@ const UserView = () => {
            <Avatar
 
 
-           sx={{ width: 170, height: 170 }}
+
+           sx={{ width: 170, height: 170,top: -60 ,left: 590}}
             src={JSON.parse(localStorage.getItem('user')).foto}
-            />
+            />    
+             <h1> {JSON.parse(localStorage.getItem('user')).nombre}</h1> 
            <h2> {JSON.parse(localStorage.getItem('user')).email}</h2> 
-           <h2> {JSON.parse(localStorage.getItem('user')).nombre}</h2>  
+       
            <h2> {JSON.parse(localStorage.getItem('user')).curso}</h2>  
    
            

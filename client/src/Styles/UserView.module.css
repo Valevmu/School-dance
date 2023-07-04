@@ -6,8 +6,6 @@
   border-radius: 20px 20px;
   width: 30%;
   display: contents;
-  /* display: table-header-group; */
-  
   background-image: linear-gradient(to bottom, #0d6efd, #4a62fd, #6e53fb, #8c3df5, #a712eb);
 }
 .nav-profile{
@@ -43,7 +41,9 @@ ul {
   padding: 0;
   width: 200px;
   background-color: #f1f1f1;
-  width:auto
+  width:auto;
+  position: absolute;
+  top: 230px;
 }
 
 li a {
