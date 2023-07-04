@@ -1,19 +1,23 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import styles from "./SignUp.module.css";
+import '../Styles/SignUpForm.css'
 import { Link, useNavigate } from "react-router-dom";
 import  Button  from "react-bootstrap/Button";
-import axios from 'axios'
+import Checkbox from '@mui/material/Checkbox';
+import Radio from '@mui/material/Radio';
+import { pink } from '@mui/material/colors';
+import axios from 'axios';
 
-const SignUp = () => {
+export const SignUpForm = () => {
   const navigate = useNavigate();
   const [newUser, setNewUser] = useState({
     email: "",
     password: "",
-    confirmPassword:""
+    confirmPassword:"",
+    userType: "",
   });
   const handleForm = (e) => { 
-    e.preventDefault();
+    // e.preventDefault();
     setNewUser({ ...newUser, [e.target.name]: e.target.value });
   };
 
@@ -23,29 +27,52 @@ const SignUp = () => {
     handleSubmit,
   } = useForm();
   const onSubmit = async () => {
-   
+    const response = await axios.post("http://localhost:8080/api/user/register", newUser);
     try {
-      const response = await axios.post("http://localhost:8080/api/user/register", newUser);
-      console.log(response.data)
-      navigate('/user-view')
+      const userType = (response.data.User.userType);
+      localStorage.setItem("userType", userType);
+      {userType === "teacher" ? (navigate('/user-view')) : (navigate('/home'))}
     }catch(error){
       console.error(error)
     }
 
   }
   return (
-    <div className={styles["signup-container"]}>
-      <div className={styles["signup-form"]}>
-        <h1>Sign up</h1>
-        <form className={styles['form']} onSubmit={handleSubmit(onSubmit)}>
-          <div className={styles["container-label"]}>
-            <label>Email</label>
+    <>
+      <div className="signup-form">
+        <h1>REGÍSTRATE</h1>
+        <form className='form' onSubmit={handleSubmit(onSubmit)}>
+          <div className="radio-container">
+            <div className="radio-inputs">
+            <label className="radio">
+              <input type="radio" 
+                name="userType" 
+                value="teacher"
+                {...register("userType", { required: true })} 
+                onChange={handleForm}/>
+              <span className="name">Soy Profesor</span>
+              </label>
+              <label className="radio">
+                <input type="radio"
+                  name="userType"
+                  value="student"
+                  {...register("userType", { required: true })}
+                  onChange={handleForm} />
+                <span className="name">Soy Estudiante</span>
+              </label>
+            </div>
+            {errors.userType?.type === "required" && (
+            <p role="alert">Debes seleccionar una opción</p>)}
+          </div>
+          
+          <div className="container-label">
+            <label className="label">Email:</label>
             <input
-              className={styles["input"]}
+              className="input"
               {...register("email", { required: true, minLenght: 5,pattern:{ value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i, message:"Ingresa un email valido"}  })}
               type="email"
               name="email"
-              placeholder="email"
+              placeholder="Email"
               value={newUser.email}
               onChange={handleForm}
             />
@@ -59,12 +86,12 @@ const SignUp = () => {
               <p role='alert'>Debes ingresar un email válido</p>
             )}
           </div>
-          <div className={styles["container-label"]}>
-            <label>Password</label>
+          <div className="container-label">
+            <label className="label">Contraseña:</label>
             <input
               {...register("password", { required: true, minLenght: 5 })}
               type="password"
-              placeholder="password"
+              placeholder="Contraseña"
               name="password"
               value={newUser.password}
               onChange={handleForm}
@@ -76,12 +103,12 @@ const SignUp = () => {
               <p role="alert">Contraseña es requerida</p>
             )}
           </div>
-          <div className={styles["container-label"]}>
-            <label>Confirma tu contraseña</label>
+          <div className="container-label">
+            <label className="label">Confirma tu contraseña:</label>
             <input
               {...register("confirmPassword", { required: true, minLenght: 5 })}
               type="password"
-              placeholder=" confirma password"
+              placeholder="Confirma tu contraseña"
               name="confirmPassword"
               value={newUser.confirmPassword}
               onChange={handleForm}
@@ -93,21 +120,19 @@ const SignUp = () => {
               <p role="alert">Contraseña es requerida</p>
             )}
           </div>
-          
-
-          <Button className={styles["btn"]} type="submit">
-            Sign up
-          </Button>
-          <h4>
-            ¿Ya eres miembro?
-            <Button variant="link">
-              <Link to="/sign-in">Sign-in</Link>
+          <div className="btn-signup">
+            <Button className="btn" type="submit">
+              Registrarse
             </Button>
-          </h4>
+          </div>
+          <h3 className="link-title">
+            ¿Ya eres miembro?
+          </h3>
+          <Link to="/sign-in" className="link-title">Inicia Sesion</Link>
         </form>
       </div>
-    </div>
+    </>
   );
 };
 
-export default SignUp;
+

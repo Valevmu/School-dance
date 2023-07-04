@@ -1,0 +1,134 @@
+.signup-form {
+  width: auto;
+  margin-top: 50px;
+}
+
+.signup-form h1 {
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  font-size: 28px;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  letter-spacing: 5px;
+  margin-bottom: 4vh;
+}
+
+
+.label {
+  display: flex;
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 500;
+}
+
+.container-label {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: stretch;
+  gap: 5px;
+  margin-bottom: 1vh;
+}
+
+.container-label input {
+  height: 5vh;
+  border-radius: 15px;
+  border: none;
+  padding: 1vh 1vw;
+  /* From https://css.glass */
+  background: rgba(255, 255, 255);
+}
+
+.form {
+  display: grid;
+  max-width: 300px;
+  margin: auto;
+}
+.form p{
+  color: red;
+}
+
+
+.btn {
+    color: white;
+    margin: 2% 2%;
+    background-color: #fb3984;
+    padding: 0.5rem 2rem;
+    border-radius: 15px;
+    border: 1px solid #fb3984;
+    width: fit-content;
+    border: none;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.btn:hover {
+  color: #fff;
+  margin: 2% 2%;
+  background-color: #f5c000;
+  padding: 0.5rem 2rem;
+  border-radius: 15px;
+  width: fit-content;
+  border: none;
+  font-family: 'Open Sans', sans-serif;
+  opacity: 1;
+  border: none;
+  transform: scale(1.03);
+}
+
+.link-title{
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.btn-signup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2vh 0;
+}
+
+.radio-inputs {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 0.5rem;
+  background-color: #270fbf96;
+  box-sizing: border-box;
+  box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.06);
+  padding: 0.25rem;
+  width: 300px;
+  font-size: 14px;
+}
+
+.radio-inputs .radio {
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+.radio-inputs .radio input {
+  display: none;
+}
+
+.radio-inputs .radio .name {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  border: none;
+  padding: .5rem 0;
+  color: #fff;
+  transition: all .15s ease-in-out;
+}
+
+.radio-inputs .radio input:checked + .name {
+  background-color: #fb3984;
+  font-weight: 600;
+  color: #fff;
+}
+
+.radio-container {
+  margin: 1vh 0 3vh 0;
+}

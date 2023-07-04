@@ -3,18 +3,19 @@ const bcrypt = require('bcrypt')
 const jwt = require("jsonwebtoken");
 
 module.exports.register = async (req, res) => {
+  console.log(req.body)
   try {
     const newUser = await User.create(req.body);
     res.json({ User : newUser})
     
   } catch (error){
-    res.status(500).json({
+    res.json({
       msg: "Error al crear usuario",
       error
     })
-
   }
-}
+  }
+
 module.exports.login = async (req, res) => {
   const { email, password } = req.body;
 

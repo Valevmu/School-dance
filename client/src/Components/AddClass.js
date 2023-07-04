@@ -1,6 +1,6 @@
 import React, {  useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
-import styles from './AddClass.module.css'
+import styles from '../Styles/AddClass.module.css'
 import { Navigate, useNavigate, useParams} from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from 'axios'

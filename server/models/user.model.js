@@ -16,10 +16,11 @@ const UserSchema = new Schema({
     match: /(?=.*[a-zA-Z])(?=.*[0-9]+).*/,
     minlength: 5
   },
-  admin: {
-    type: Boolean,
-    default: 'false',
-}
+  userType: {
+    type: String,
+    enum: ['teacher', 'student'],
+    required: [true, 'debe seleccionar un tipo de usuario']
+  }
 })
 // add this after UserSchema is defined
 UserSchema.virtual('confirmPassword')

@@ -1,4 +1,5 @@
 .signup-container {
+
   width: 500px;
   -webkit-box-shadow: 7px 11px 38px -3px rgba(5, 5, 5, 1);
   -moz-box-shadow: 7px 11px 38px -3px rgba(5, 5, 5, 1);
@@ -12,13 +13,10 @@
   margin-top: 50px;
 }
 
-label {
-  display: flex;
-}
+
 
 .container-label {
   display: contents;
-
 }
 
 .form {
@@ -30,12 +28,14 @@ label {
   color: red;
 }
 
-
-/* .input {
-  margin-bottom: 40px;
-} */
+.input {
+  margin-bottom: 10px;
+}
 
 .btn {
   margin-top: 40px;
   margin-bottom: 20px;
 }
+/* p{
+  color: red;
+} */
