@@ -34,7 +34,7 @@ export const Features = () => {
                 <div className='features-container'>
                     {featuresItems.map((item, index) => {
                         return (
-                            <Card sx={{ maxWidth: 280 }}>
+                            <Card sx={{ maxWidth: 280 }} key={index}>
                                     <CardMedia
                                         component="img"
                                         height="140"

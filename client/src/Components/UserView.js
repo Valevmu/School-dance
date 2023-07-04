@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import axios from 'axios'
 import Avatar from '@mui/material/Avatar';
+import { NavbarMUI } from './NavbarMUI';
 
 
 
@@ -43,6 +44,7 @@ const UserView = () => {
   }
   return (
     <div className='fondo'>
+      <NavbarMUI />
      
       <Navbar  bg="primary" variant='dark'>
         <Container>
@@ -90,7 +92,7 @@ const UserView = () => {
            <h2> {JSON.parse(localStorage.getItem('user')).email}</h2> 
            <h2> {JSON.parse(localStorage.getItem('user')).nombre}</h2>  
            <h2> {JSON.parse(localStorage.getItem('user')).curso}</h2>  
-           <h2> {JSON.parse(localStorage.getItem('user')).horarios}</h2>
+   
            
            
 

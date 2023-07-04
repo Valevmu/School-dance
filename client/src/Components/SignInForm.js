@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 
-const SignIn = () => {
+export const SignInForm = () => {
   const navigate = useNavigate();
   const [profile, setProfile] = useState()
   const [user, setUser] = useState({
@@ -47,19 +47,18 @@ const SignIn = () => {
 
   
   return (
-    <div className={styles["signup-container"]}>
-    <div className={styles["signup-form"]}>
-      <h1>Bienvenido de vuelta!</h1>
+    <div className="signup-form">
+      <h1>¡BIENVENIDO DE VUELTA!</h1>
       
-      <form className={styles['form']} onSubmit={handleSubmit(onSubmit)}>
-        <div className={styles["container-label"]}>
-          <label>Email</label>
+      <form className='form' onSubmit={handleSubmit(onSubmit)}>
+        <div className="container-label">
+          <label className='label'>Email</label>
           <input
-            className={styles["input"]}
+            className="input"
             {...register("email", { required: true, minLength: 5, pattern:{ value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i, message:"Ingresa un email valido"} })}
             type="email"
             name="email"
-            placeholder="email"
+            placeholder="Ingresa tu email"
             value={user.email}
             onChange={handleForm}
             />
@@ -74,15 +73,16 @@ const SignIn = () => {
             )}
           
         </div>
-        <div className={styles["container-label"]}>
-          <label>Password</label>
+        <div className="container-label">
+          <label className='label'>Contraseña:</label>
           <input
            {...register("password", { required: true, minLength: 5 })}
             type="password"
-            placeholder="password"
+            placeholder="Ingresa tu contraseña"
             name="password"
             value={user.password}
             onChange={handleForm}
+            className='input'
           />
           {errors.password?.type === "minLength" && (
             <p role="alert">Minimo de 5 caracteres</p>
@@ -91,10 +91,11 @@ const SignIn = () => {
             <p role="alert">Contraseña es requerida</p>
           )}
         </div>
-
-        <Button className={styles["btn"]} type="submit">
-          Sign In
-        </Button>
+        <div className="btn-signup">
+          <Button className='btn' type="submit">
+            Sign In
+          </Button>
+        </div>
         {/* <p>
           ¿Ya eres miembro?
           <Button variant="link">
@@ -103,8 +104,6 @@ const SignIn = () => {
         </p> */}
       </form>
     </div>
-  </div>
+  
   )
 }
-
-export default SignIn

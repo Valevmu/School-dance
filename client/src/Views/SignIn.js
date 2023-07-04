@@ -1,15 +1,15 @@
-import React from 'react';
+import React from 'react'
+import { SignInForm } from '../Components/SignInForm';
+import '../Styles/SignUpForm.css';
 import '../Styles/Home.css';
-import {SignUpForm} from '../Components/SignUpForm';
-import { Footer } from '../Components/Footer';
 import { NavbarMUI } from '../Components/NavbarMUI';
 
-export const SignUp = () => {
+export const SignIn = () => {
   return (
     <>
       <NavbarMUI />
       <div className='signup-container'>
-          <SignUpForm />
+          <SignInForm />
       </div>
     </>
   )

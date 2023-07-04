@@ -6,8 +6,9 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
+import { NavbarMUI } from "./NavbarMUI";
 
-const Alumnos = () => {
+export const Alumnos = () => {
   const [students, setStudents] = useState([]);
   const getStudentsFromService = async () => {
     try {
@@ -25,7 +26,10 @@ const Alumnos = () => {
     getStudentsFromService();
   }, []);
   return (
-    <div>
+  
+    <>
+        <NavbarMUI />
+        
       <Navbar bg="primary" variant="dark">
         <Container>
           <Navbar.Brand href="/home">
@@ -73,7 +77,7 @@ const Alumnos = () => {
           ))}
         </table>
     
-    </div>
+    </>
   );
 };
 

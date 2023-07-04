@@ -10,7 +10,7 @@ export const Footer = () => {
                         Contacto:+569 999 999
                     </p>
                     <p>
-                        Hecho por Valentina Madrid
+                        Hecho por Gianni y Valentina
                     </p>
                     <a>
                         <i className="bi bi-house-door"></i>

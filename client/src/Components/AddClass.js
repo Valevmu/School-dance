@@ -4,9 +4,10 @@ import styles from '../Styles/AddClass.module.css'
 import { Navigate, useNavigate, useParams} from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from 'axios'
+import { NavbarMUI } from "./NavbarMUI";
 
 
-const AddClass = () => {
+export const AddClass = () => {
   const navigate = useNavigate();
   const { id } = useParams();
 
@@ -73,6 +74,7 @@ const AddClass = () => {
 
   return (
     <div>
+      <NavbarMUI />
  
       <form className={styles['form']} onSubmit={handleSubmit(sendStudent)}>
         <h1>Formulario de inscripción</h1>

@@ -27,8 +27,8 @@ export const CarouselPhoto = () => {
             <h1>SMART STUDIO</h1>
             <h2>Todas tus clases en una sola aplicación</h2>
             <Carousel>
-                {items.map(item => (
-                    <Carousel.Item interval={2000}>
+                {items.map((item,index) => (
+                    <Carousel.Item interval={2000} key={index}>
                         <img
                             className="photo-caroulsel"
                             src={item.photo}
