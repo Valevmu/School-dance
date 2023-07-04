@@ -30,8 +30,9 @@ export const SignUpForm = () => {
     const response = await axios.post("http://localhost:8080/api/user/register", newUser);
     try {
       const userType = (response.data.User.userType);
-      localStorage.setItem("userType", userType);
-      {userType === "teacher" ? (navigate('/user-view')) : (navigate('/home'))}
+      const id = (response.data.User._id);
+      localStorage.setItem("userInfo", JSON.stringify({ userType, id }));
+      navigate('/sign-in')
     }catch(error){
       console.error(error)
     }

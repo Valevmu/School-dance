@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt')
 const jwt = require("jsonwebtoken");
 
 module.exports.register = async (req, res) => {
-  console.log(req.body)
+  
   try {
     const newUser = await User.create(req.body);
     res.json({ User : newUser})
@@ -29,8 +29,7 @@ module.exports.login = async (req, res) => {
             if (isValid) {
                 const UserToken = jwt.sign({
                     id: User._id,
-                    email: User.email
-                    
+                    email: User.email,
                 }, process.env.SECRET_KEY);
 
                 res
@@ -38,7 +37,7 @@ module.exports.login = async (req, res) => {
                         httpOnly: true,
                       
                     })
-                    .json({ msg: "success!" })
+                    .json({ msg: "success!", id: User._id, email: User.email, type: User.userType })
             } else {
                 res.status(403).json({ msg: "Contraseña incorrecta" })
             }

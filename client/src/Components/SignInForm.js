@@ -28,18 +28,16 @@ export const SignInForm = () => {
     handleSubmit,
   } = useForm();
   const onSubmit = async () => {
-   
-    try {
-      const response = await axios.post("http://localhost:8080/api/user/login" , user, {withCredentials: true});
-      console.log(response.data)
-      console.log(response.data.msg)
-      
-      navigate('/user-view')
-    }catch(error){
-    
-      console.error(error)
-
-    }
+    const response = await axios.post("http://localhost:8080/api/user/login" , user, {withCredentials: true});
+      try {
+        // console.log(response.data)
+        const userType = (response.data.type);
+        const id = (response.data.id);
+        localStorage.setItem("userInfo", JSON.stringify({ userType, id }));
+        navigate('/dashboard')
+      }catch(error){
+        console.error(error)
+      }
 
   }
   
@@ -49,7 +47,7 @@ export const SignInForm = () => {
       
       <form className='form' onSubmit={handleSubmit(onSubmit)}>
         <div className="container-label">
-          <label>Email</label>
+          <label className='label'>Email</label>
           <input
             className="input"
             {...register("email", { required: true, minLength: 5, pattern:{ value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i, message:"Ingresa un email valido"} })}
@@ -71,7 +69,7 @@ export const SignInForm = () => {
           
         </div>
         <div className="container-label">
-          <label>Contraseña:</label>
+          <label className='label'>Contraseña:</label>
           <input
            {...register("password", { required: true, minLength: 5 })}
             type="password"
