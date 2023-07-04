@@ -1,15 +1,15 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styles from '../Styles/SignIn.module.css'
 import Button from "react-bootstrap/Button";
 import { useForm } from "react-hook-form";
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
-// import { Link } from "react-router-dom";
-// import  Button  from "react-bootstrap/Button";
+
 
 
 const SignIn = () => {
   const navigate = useNavigate();
+  const [profile, setProfile] = useState()
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -33,7 +33,9 @@ const SignIn = () => {
       const response = await axios.post("http://localhost:8080/api/user/login" , user, {withCredentials: true});
       console.log(response.data)
       console.log(response.data.msg)
-      
+      setProfile(response.data.profile) 
+      localStorage.setItem('user', JSON.stringify(response.data.profile))
+      console.log(localStorage)
       navigate('/user-view')
     }catch(error){
     
@@ -42,6 +44,7 @@ const SignIn = () => {
     }
 
   }
+
   
   return (
     <div className={styles["signup-container"]}>

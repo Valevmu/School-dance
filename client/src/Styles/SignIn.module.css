@@ -7,18 +7,45 @@
   padding: auto;
   margin: auto;
 }
-
 .signup-form {
   width: auto;
   margin-top: 50px;
+}
+.signup-form h1 {
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  font-size: 28px;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  letter-spacing: 5px;
+  margin-bottom: 4vh;
+  margin-top: 150px;
 }
 
 label {
   display: flex;
 }
 
+.container-label input{
+  
+  height: 5vh;
+  border-radius: 15px;
+  border: none;
+  padding: 1vh 1vw;
+  /* From https://css.glass */
+  background: rgba(255, 255, 255);
+}
 .container-label {
-  display: contents;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: stretch;
+  gap: 5px;
+  margin-bottom: 1vh;
+}
+label {
+  display: flex;
+  color: white;
 }
 
 .form {
@@ -30,14 +57,8 @@ label {
   color: red;
 }
 
-.input {
-  margin-bottom: 10px;
-}
 
 .btn {
   margin-top: 40px;
   margin-bottom: 20px;
 }
-/* p{
-  color: red;
-} */
