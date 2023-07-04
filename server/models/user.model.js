@@ -19,14 +19,8 @@ const UserSchema = new Schema({
   userType: {
     type: String,
     enum: ['teacher', 'student'],
-    default: 'student',
     required: [true, 'debe seleccionar un tipo de usuario']
   }
-//   admin: {
-//     type: Boolean,
-//     default: 'false',
-//     required: false,
-// }
 })
 // add this after UserSchema is defined
 UserSchema.virtual('confirmPassword')

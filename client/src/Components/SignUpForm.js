@@ -3,17 +3,21 @@ import { useForm } from "react-hook-form";
 import '../Styles/SignUpForm.css'
 import { Link, useNavigate } from "react-router-dom";
 import  Button  from "react-bootstrap/Button";
-import axios from 'axios'
+import Checkbox from '@mui/material/Checkbox';
+import Radio from '@mui/material/Radio';
+import { pink } from '@mui/material/colors';
+import axios from 'axios';
 
 export const SignUpForm = () => {
   const navigate = useNavigate();
   const [newUser, setNewUser] = useState({
     email: "",
     password: "",
-    confirmPassword:""
+    confirmPassword:"",
+    userType: "",
   });
   const handleForm = (e) => { 
-    e.preventDefault();
+    // e.preventDefault();
     setNewUser({ ...newUser, [e.target.name]: e.target.value });
   };
 
@@ -23,11 +27,11 @@ export const SignUpForm = () => {
     handleSubmit,
   } = useForm();
   const onSubmit = async () => {
-   
+    const response = await axios.post("http://localhost:8080/api/user/register", newUser);
     try {
-      const response = await axios.post("http://localhost:8080/api/user/register", newUser);
-      console.log(response.data)
-      navigate('/user-view')
+      const userType = (response.data.User.userType);
+      localStorage.setItem("userType", userType);
+      {userType === "teacher" ? (navigate('/user-view')) : (navigate('/home'))}
     }catch(error){
       console.error(error)
     }
@@ -38,8 +42,31 @@ export const SignUpForm = () => {
       <div className="signup-form">
         <h1>REGÍSTRATE</h1>
         <form className='form' onSubmit={handleSubmit(onSubmit)}>
+          <div className="radio-container">
+            <div className="radio-inputs">
+            <label className="radio">
+              <input type="radio" 
+                name="userType" 
+                value="teacher"
+                {...register("userType", { required: true })} 
+                onChange={handleForm}/>
+              <span className="name">Soy Profesor</span>
+              </label>
+              <label className="radio">
+                <input type="radio"
+                  name="userType"
+                  value="student"
+                  {...register("userType", { required: true })}
+                  onChange={handleForm} />
+                <span className="name">Soy Estudiante</span>
+              </label>
+            </div>
+            {errors.userType?.type === "required" && (
+            <p role="alert">Debes seleccionar una opción</p>)}
+          </div>
+          
           <div className="container-label">
-            <label>Email:</label>
+            <label className="label">Email:</label>
             <input
               className="input"
               {...register("email", { required: true, minLenght: 5,pattern:{ value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i, message:"Ingresa un email valido"}  })}
@@ -60,7 +87,7 @@ export const SignUpForm = () => {
             )}
           </div>
           <div className="container-label">
-            <label>Contraseña:</label>
+            <label className="label">Contraseña:</label>
             <input
               {...register("password", { required: true, minLenght: 5 })}
               type="password"
@@ -77,7 +104,7 @@ export const SignUpForm = () => {
             )}
           </div>
           <div className="container-label">
-            <label>Confirma tu contraseña:</label>
+            <label className="label">Confirma tu contraseña:</label>
             <input
               {...register("confirmPassword", { required: true, minLenght: 5 })}
               type="password"
