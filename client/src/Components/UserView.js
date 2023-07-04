@@ -46,7 +46,7 @@ const UserView = () => {
     <div className='fondo'>
       <NavbarMUI />
      
-      <Navbar  bg="primary" variant='dark'>
+      {/* <Navbar  bg="primary" variant='dark'>
         <Container>
           
           <Navbar.Brand href="/home">
@@ -58,7 +58,7 @@ const UserView = () => {
            
           </Nav>
         </Container>
-        </Navbar> 
+        </Navbar>  */}
     
       <section className={styles['left-section']}>
 

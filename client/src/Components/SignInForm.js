@@ -5,11 +5,14 @@ import { useForm } from "react-hook-form";
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
 
+import Alert from '@mui/material/Alert';
+
 
 
 export const SignInForm = () => {
   const navigate = useNavigate();
-  const [profile, setProfile] = useState()
+  const [profile, setProfile] = useState();
+  const [showAlert, setShowAlert] = useState(false); 
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -37,9 +40,10 @@ export const SignInForm = () => {
       localStorage.setItem('user', JSON.stringify(response.data.profile))
       console.log(localStorage)
       navigate('/user-view')
+      
     }catch(error){
-    
-      console.error(error)
+      console.log(error.response.data.msg);
+      setShowAlert(true);
 
     }
 
@@ -96,12 +100,14 @@ export const SignInForm = () => {
             Sign In
           </Button>
         </div>
-        {/* <p>
-          ¿Ya eres miembro?
-          <Button variant="link">
-            <Link to="/sign-in">Sign-in</Link>
-          </Button>
-        </p> */}
+        
+        {showAlert && (
+          <Alert variant="outlined" severity="error">
+           <strong>
+            Contraseña incorrecta
+            </strong> 
+          </Alert> )}
+     
       </form>
     </div>
   
