@@ -2,11 +2,15 @@ import React from 'react'
 import { SignInForm } from '../Components/SignInForm';
 import '../Styles/SignUpForm.css';
 import '../Styles/Home.css';
+import { NavbarMUI } from '../Components/NavbarMUI';
 
 export const SignIn = () => {
   return (
-    <div className='signup-container'>
-        <SignInForm />
-    </div>
+    <>
+      <NavbarMUI />
+      <div className='signup-container'>
+          <SignInForm />
+      </div>
+    </>
   )
 }

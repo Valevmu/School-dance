@@ -9,14 +9,18 @@ import { FontAwesomeIcon } from 'react-icons';
 import { CarouselPhoto } from "../Components/CarouselPhoto";
 import { Features } from "../Components/Features";
 import { Footer } from "../Components/Footer";
+import { NavbarMUI } from "../Components/NavbarMUI";
 
 const Home = () => {
   return (
-    <div className="home-container">
-          <CarouselPhoto />
-          <Features />
-          <Footer />
-    </div>
+    <>
+      <NavbarMUI />
+      <div className="home-container">
+            <CarouselPhoto />
+            <Features />
+            <Footer />
+      </div>
+    </>
   );
 };
 

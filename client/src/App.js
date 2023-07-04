@@ -12,6 +12,7 @@ import Edit from './Views/Edit';
 import { NavbarMUI } from './Components/NavbarMUI';
 import { SignUp } from './Views/SignUp';
 import { SignIn } from './Views/SignIn';
+import { Dashboard } from './Views/Dashboard';
 
 
 
@@ -19,19 +20,16 @@ import { SignIn } from './Views/SignIn';
 function App() {
   return (
     <div className="App">
-      <NavbarMUI />
      <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/home" element={<Home />} />
       <Route path='/sign-up' element={<SignUp />} />
       <Route path="/sign-in" element={<SignIn />} />
-      <Route path='/user-view' element={<UserView />}/>
+      <Route path='/dashboard' element={<Dashboard />}/>
       <Route path='/add-class' element={<AddClass />}/>
       <Route path='/alumnos' element={<Alumnos />}/>
       <Route path='/students/details/:id' element={<ViewStudent />}/>
       <Route path='/students/edit/:id' element={<Edit />} />
-
-      
      </Routes>
     </div>
   );

@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import axios from 'axios'
 
 
-const AddClass = () => {
+export const AddClass = () => {
   const navigate = useNavigate();
   const { id } = useParams();
 
