@@ -29,6 +29,9 @@ const UserSchema = new Schema({
     match: /(?=.*[a-zA-Z])(?=.*[0-9]+).*/,
     minlength: 5
   },
+  comentarios: {
+    type: String,
+  },
   admin: {
     type: Boolean,
     default: 'false',

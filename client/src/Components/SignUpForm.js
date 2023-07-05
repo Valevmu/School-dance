@@ -130,6 +130,7 @@ export const SignUpForm = () => {
             ¿Ya eres miembro?
           </h3>
           <Link to="/sign-in" className="link-title">Inicia Sesion</Link>
+          
         </form>
       </div>
     </>

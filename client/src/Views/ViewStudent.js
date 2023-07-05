@@ -46,6 +46,7 @@ const ViewStudent = () => {
         <button className={styles["button"]}>
           <Link to="/alumnos"> Volver</Link>
         </button>
+        
         <div className={styles["card-profile"]}>
           {students.students && (
             <div className={styles["data"]} key={students.id}>

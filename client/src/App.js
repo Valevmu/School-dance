@@ -13,6 +13,7 @@ import { NavbarMUI } from './Components/NavbarMUI';
 import { SignUp } from './Views/SignUp';
 import { SignIn } from './Views/SignIn';
 import { Dashboard } from './Views/Dashboard';
+import { UserProfile } from './Components/UserProfile';
 
 
 
@@ -31,6 +32,7 @@ function App() {
       <Route path='/students/details/:id' element={<ViewStudent />}/>
       <Route path='/students/edit/:id' element={<Edit />} />
       <Route path='/user-view' element={<UserView />}></Route>
+      <Route path='/user-profile' element={<UserProfile />}></Route>
       
      </Routes>
     </div>

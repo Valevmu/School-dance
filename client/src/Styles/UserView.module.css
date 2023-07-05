@@ -16,6 +16,9 @@
 /* .fondo{
   
 } */
+.card-container{
+  display: flex;
+}
 .main-section{
   width: 100%;
 }

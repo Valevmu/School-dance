@@ -19,6 +19,9 @@ const StudentSchema = new Schema({
   },
   foto:{
     type: String,
+  },
+  comentarios: {
+    type: String,
   }
 })
 
