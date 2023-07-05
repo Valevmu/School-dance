@@ -73,7 +73,7 @@ export const AddClass = () => {
   }, [id]);
 
   return (
-    <div>
+    <div className={styles['container']}>
       <NavbarMUI />
  
       <form className={styles['form']} onSubmit={handleSubmit(sendStudent)}>

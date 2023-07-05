@@ -7,5 +7,6 @@ module.exports = (app) => {
   app.put('/api/students/update/:id',authenticate, danceController.updateStudent)
   app.post('/api/students/new',authenticate,  danceController.createNewStudent)
   app.delete('/api/students/delete/:id',authenticate, danceController.deleteAnExistingStudent)
+  // app.patch('/api/students/:id/like', authenticate,danceController.updateStudent )
 
 }
