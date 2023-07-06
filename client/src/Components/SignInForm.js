@@ -39,10 +39,10 @@ export const SignInForm = () => {
       setProfile(response.data.profile) 
       localStorage.setItem('user', JSON.stringify(response.data.profile))
       console.log(localStorage)
-      navigate('/user-view')
+      navigate('/dashboard')
       
     }catch(error){
-      console.log(error.response.data.msg);
+      console.log(error.message);
       setShowAlert(true);
 
     }

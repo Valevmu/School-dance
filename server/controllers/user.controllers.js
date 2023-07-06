@@ -27,28 +27,17 @@ module.exports.login = async (req, res) => {
         bcrypt.compare(password, profile.password)
         .then(isValid => {
             if (isValid) {
-<<<<<<< HEAD
-                const userToken = jwt.sign({
-                    id: profile._id,
-                    email: profile.email
-                    
-=======
                 const UserToken = jwt.sign({
                     id: User._id,
                     email: User.email,
->>>>>>> e12fc38b2eb5d07f5c5601d29f941eb2800914ff
                 }, process.env.SECRET_KEY);
 
                 res
-                    .cookie("userToken", userToken, process.env.SECRET_KEY, {
+                    .cookie("userToken", UserToken, process.env.SECRET_KEY, {
                         httpOnly: true,
                       
                     })
-<<<<<<< HEAD
-                    .json({ msg: "success!", profile })
-=======
                     .json({ msg: "success!", id: User._id, email: User.email, type: User.userType })
->>>>>>> e12fc38b2eb5d07f5c5601d29f941eb2800914ff
             } else {
                 res.status(403).json({ msg: "Contraseña incorrecta" })
             }
