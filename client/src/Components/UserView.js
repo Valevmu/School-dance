@@ -10,12 +10,6 @@ import Avatar from '@mui/material/Avatar';
 import { NavbarMUI } from './NavbarMUI';
 
 
-
-
-
-
-
-
 const UserView = (props) => {
   const [profile, setProfile] = useState();
   const navigate = useNavigate()

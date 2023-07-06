@@ -4,7 +4,7 @@ import { NavbarMUI } from '../Components/NavbarMUI';
 
 
 export const Dashboard = () => {
-  
+
   return (
     <>
         <NavbarMUI  />
