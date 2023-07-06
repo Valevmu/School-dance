@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose')
 
 const bcrypt = require('bcrypt');
-const { MixedSchema } = require('yup');
+// const { MixedSchema } = require('yup');
 
 
 const UserSchema = new Schema({
@@ -20,9 +20,9 @@ const UserSchema = new Schema({
   foto:{
     type:String
   },
-  horarios: {
-    type: MixedSchema
-  },
+  // horarios: {
+  //   type: MixedSchema
+  // },
   password: {
     type: String,
     required: [true, 'debe escribir su contraseña'],
