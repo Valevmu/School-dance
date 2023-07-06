@@ -4,18 +4,18 @@ import { NavbarMUI } from '../Components/NavbarMUI';
 
 
 export const Dashboard = () => {
-    const [userInfo, setUserInfo] = useState({});
+    // const [user, setUser] = useState({});
 
-    useEffect(() => {
-        const localInfo = JSON.parse(localStorage.getItem("userInfo"));
-        setUserInfo(localInfo)
-    }, [])
+    // useEffect(() => {
+    //     const localInfo = JSON.parse(localStorage.getItem("user"));
+    //     setUser(localInfo)
+    // }, [])
 
   return (
     <>
         <NavbarMUI  />
         <div>
-            <UserView userInfo={userInfo}/>
+            <UserView />
         </div>
     </>
   )

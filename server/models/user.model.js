@@ -32,11 +32,9 @@ const UserSchema = new Schema({
   comentarios: {
     type: String,
   },
-  admin: {
+  userType: {
     type: Boolean,
-    default: 'false',
-  
-}
+  }
 })
 // add this after UserSchema is defined
 UserSchema.virtual('confirmPassword')
