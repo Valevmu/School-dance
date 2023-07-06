@@ -32,7 +32,7 @@ const UserSchema = new Schema({
   comentarios: {
     type: String,
   },
-  admin: {
+  userType: {
     type: Boolean,
     default: 'false',
   
