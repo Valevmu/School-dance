@@ -1,20 +1,27 @@
-import React, { useEffect, useState } from 'react'
-import styles from '../Styles/UserView.module.css'
-import Navbar from 'react-bootstrap/Navbar';
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
+import React, { useEffect, useState } from 'react';
+import styles from '../Styles/UserView.module.css';
 import { useNavigate } from "react-router-dom";
-import Button from "react-bootstrap/Button";
-import axios from 'axios'
 import Avatar from '@mui/material/Avatar';
 import { NavbarMUI } from './NavbarMUI';
+import axios from 'axios';
+
 
 const UserView = (props) => {
-  const [profile, setProfile] = useState();
+  const [profile, setProfile] = useState([]);
   const navigate = useNavigate()
+
   useEffect(() => {
-    localStorage.getItem('user') && setProfile(JSON.parse(localStorage.getItem('user')))
-  }, [])
+    const id = JSON.parse(localStorage.getItem('user')).id
+    console.log(id)
+    axios.get(`http://localhost:8080/api/user/${id}`)
+      .then((response) => {
+        setProfile(response.data.user);
+      } 
+      )
+      .catch((error) => {
+        console.log(error)
+      })
+}, [])
 
 
   return (
@@ -42,11 +49,11 @@ const UserView = (props) => {
 
           <Avatar
             sx={{ width: 170, height: 170, top: -60, left: 590 }}
-            src={JSON.parse(localStorage.getItem('user')).foto}
+            src={profile.foto}
           />
-          <h1> {JSON.parse(localStorage.getItem('user')).nombre}</h1>
-          <h2> {JSON.parse(localStorage.getItem('user')).email}</h2>
-          <h2> {JSON.parse(localStorage.getItem('user')).curso}</h2>
+          <h1>{profile.name}</h1>
+          <h2>{profile.email}</h2>
+          <h2>{profile.curso}</h2>
         </div>
         <div className={styles['card-container']}>
         </div>
