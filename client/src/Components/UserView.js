@@ -9,7 +9,6 @@ import axios from 'axios'
 import Avatar from '@mui/material/Avatar';
 import { NavbarMUI } from './NavbarMUI';
 
-
 const UserView = (props) => {
   const [profile, setProfile] = useState();
   const navigate = useNavigate()
@@ -17,15 +16,7 @@ const UserView = (props) => {
     localStorage.getItem('user') && setProfile(JSON.parse(localStorage.getItem('user')))
   }, [])
 
-  const onSubmit = async () => {
-    try {
-      const response = await axios.post('http://localhost:8080/api/user/logout');
-      console.log(response.data)
-      navigate('/home')
-    } catch (error) {
-      console.log(error)
-    }
-  }
+
   return (
     <div className='fondo'>
       <NavbarMUI />

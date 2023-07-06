@@ -10,7 +10,7 @@ export const NavbarMUI = () => {
   const [logged, setLogged] = useState(false);
 
   useEffect(() => {
-    JSON.parse(localStorage.getItem("userInfo")) ? 
+    JSON.parse(localStorage.getItem("user")) ? 
       setLogged(true) : setLogged(false)
   }, [])
 
