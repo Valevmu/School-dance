@@ -20,24 +20,22 @@ module.exports.login = async (req, res) => {
   const { email, password } = req.body;
 
   User.findOne( {email}) 
-    .then( profile => {
-      if (profile === null) {
+    .then( user => {
+      if (user === null) {
         return res.sendStatus(400)
       } else {
-        bcrypt.compare(password, profile.password)
+        bcrypt.compare(password, user.password)
         .then(isValid => {
             if (isValid) {
                 const UserToken = jwt.sign({
                     id: User._id,
                     email: User.email,
                 }, process.env.SECRET_KEY);
-
                 res
                     .cookie("userToken", UserToken, process.env.SECRET_KEY, {
                         httpOnly: true,
-                      
                     })
-                    .json({ msg: "success!", id: User._id, email: User.email, type: User.userType })
+                    .json({ msg: "success!", id: user._id, userType: user.userType})
             } else {
                 res.status(403).json({ msg: "Contraseña incorrecta" })
             }

@@ -31,20 +31,15 @@ export const SignInForm = () => {
     handleSubmit,
   } = useForm();
   const onSubmit = async () => {
-   
+    const response = await axios.post("http://localhost:8080/api/user/login" , user, {withCredentials: true});
     try {
-      const response = await axios.post("http://localhost:8080/api/user/login" , user, {withCredentials: true});
-      console.log(response.data)
-      console.log(response.data.msg)
-      setProfile(response.data.profile) 
-      localStorage.setItem('user', JSON.stringify(response.data.profile))
-      console.log(localStorage)
+      console.log(response)
+      localStorage.setItem('user', JSON.stringify(response.data))
       navigate('/dashboard')
       
     }catch(error){
       console.log(error.message);
       setShowAlert(true);
-
     }
 
   }
