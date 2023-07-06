@@ -61,3 +61,15 @@ module.exports.logout = async (req, res) => {
       })
   }
 }
+
+module.exports.getOneUser = async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id)
+    res.json({ user })
+  } catch (error) {
+    res.json({
+      msg: "Error al obtener usuario",
+      error
+    })
+  }
+}
