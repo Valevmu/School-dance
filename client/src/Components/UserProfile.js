@@ -29,8 +29,8 @@ export const UserProfile = (props) => {
 
 
   return (
-
-    <div className={styles['container']}>
+    <>
+      
       <div>
           <div className='nav-profile'>
             <Avatar
@@ -120,8 +120,7 @@ export const UserProfile = (props) => {
           fontStyle: italic ? 'italic' : 'initial',
         }}
       />
-    </FormControl>
-   
-    </div>
+      </FormControl>
+    </>
   )
 }
