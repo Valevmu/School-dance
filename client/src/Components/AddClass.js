@@ -10,6 +10,8 @@ import { NavbarMUI } from "./NavbarMUI";
 export const AddClass = () => {
   const navigate = useNavigate();
   const { id } = useParams();
+  const userType = JSON.parse(localStorage.getItem('user')).userType
+  console.log(`view: ${userType}`)
 
   const [newStudent, setNewStudent] = useState({
     nombre: '',
@@ -73,9 +75,8 @@ export const AddClass = () => {
   }, [id]);
 
   return (
-    <div className={styles['container']}>
-      <NavbarMUI />
- 
+    <div>
+      <h1>Tus clases</h1>
       <form className={styles['form']} onSubmit={handleSubmit(sendStudent)}>
         <h1>Formulario de inscripción</h1>
         <label>Nombre</label>

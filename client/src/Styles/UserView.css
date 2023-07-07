@@ -36,6 +36,7 @@
 }
 .main-section{
   width: 100%;
+  padding-top: 6vh;
 }
 .items{
   display: grid;
