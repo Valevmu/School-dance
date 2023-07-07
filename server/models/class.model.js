@@ -17,14 +17,18 @@ const ClassSchema = new Schema({
     type: Number,
     required: [true, 'debe escribir un stock'],
   },
-  schedule : {
-    type: String,
-    required: [true, 'debe escribir un horario'],
-  },
+  // schedule : {
+  //   type: String,
+  //   required: [true, 'debe escribir un horario'],
+  // },
+  // days : {
+  //   type: String,
+  //   required: [true, 'debe escribir un dia'],
+  // },
   teacher: {
-    type: Schema.Types.ObjectId,
+    type: String,
     ref: 'User',
-    required: [true, 'debe escribir un profesor'],
+    required: [true, 'debe estar asociado a un profesor'],
   },
   students: [{
     type: Schema.Types.ObjectId,
