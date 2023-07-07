@@ -14,10 +14,13 @@ import FormatItalic from '@mui/icons-material/FormatItalic';
 import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';
 import Check from '@mui/icons-material/Check';
 import styles from '../Styles/UserProfile.module.css';
+import Avatar from '@mui/material/Avatar';
+import '../Styles/UserView.css'
 
 
 
-export const UserProfile = () => {
+export const UserProfile = (props) => {
+  const { profile } = props;
   const [italic, setItalic] = React.useState(false);
   const [fontWeight, setFontWeight] = React.useState('normal');
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -28,7 +31,21 @@ export const UserProfile = () => {
   return (
 
     <div className={styles['container']}>
-      <NavbarMUI />
+      <div>
+          <div className='nav-profile'>
+            <Avatar
+              alt={profile.email}
+              src={profile.email}
+              className='avatar'
+              sx={{ width: 150, height: 150 }}
+            />
+          </div>
+          <div className='profile-info'>
+            <h1>{profile.name}</h1>
+            <h2>{profile.email}</h2>
+            <h2>{profile.curso}</h2>
+          </div>
+        </div>
       {/* Aqui iria el perfil con una fotito, descrip. y corazones */}
       <h1>Deja tus comentarios</h1>
       <FormControl

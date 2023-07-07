@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import styles from '../Styles/UserView.module.css';
 import { useNavigate } from "react-router-dom";
-import Avatar from '@mui/material/Avatar';
+
 import { NavbarMUI } from './NavbarMUI';
+import '../Styles/UserView.css'
 import axios from 'axios';
+import { UserProfile } from './UserProfile';
 
 
 const UserView = (props) => {
   const [profile, setProfile] = useState([]);
+  const [value, setValue] = useState(0);
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -23,40 +25,25 @@ const UserView = (props) => {
       })
 }, [])
 
+  const handleChange = (newValue) => {
+    setValue(newValue);
+  };
 
   return (
     <div className='fondo'>
       <NavbarMUI />
-      <section className={styles['left-section']}>
-        <ul>
-          <li><a href='/alumnos'>Alumnos</a></li>
-          <li><a href='/add-class'>Inscribir alumno</a></li>
-          <li><a href='/user-profile'>Comentar</a></li>
+      <section className='left-section'>
+        <ul className='sidebar-menu'>
+          <li onClick={e => handleChange(0)}>Perfil</li>
+          <li onClick={e => handleChange(1)}>Mis clases</li>
+          <li onClick={e => handleChange(2)}>Alumnos</li>
         </ul>
       </section>
-      <div className={styles['main-section']}>
-        {/* {profile?.map((profile) => {
-          <div key={profile.id}>
-
-           
-         
-            </div>
-          
-
-        })}  */}
-        <div>
-          <div className={styles['nav-profile']}></div>
-
-          <Avatar
-            sx={{ width: 170, height: 170, top: -60, left: 590 }}
-            src={profile.foto}
-          />
-          <h1>{profile.name}</h1>
-          <h2>{profile.email}</h2>
-          <h2>{profile.curso}</h2>
-        </div>
-        <div className={styles['card-container']}>
-        </div>
+      <div className='main-section'>
+        {value === 0 ? <UserProfile profile={profile}/> : null}
+        {value === 1 ? <h1>Mis clases</h1> : null}
+        {value === 2 ? <h1>Alumnos</h1> : null}
+        
       </div>
     </div>
   )
