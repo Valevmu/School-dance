@@ -1,6 +1,6 @@
 .home-container{
-    background: rgb(73,19,224);
-    background: linear-gradient(0deg, rgba(73,19,224,1) 12%, rgba(45,35,183,1) 50%, rgba(14,10,66,1) 87%);
+    background: rgb(0,0,0);
+    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(64,16,173,1) 50%, rgba(143,0,228,1) 100%);
 }
 
 .container-footer{

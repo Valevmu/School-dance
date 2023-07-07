@@ -31,9 +31,6 @@ function App() {
       <Route path='/alumnos' element={<Alumnos />}/>
       <Route path='/students/details/:id' element={<ViewStudent />}/>
       <Route path='/students/edit/:id' element={<Edit />} />
-      <Route path='/user-view' element={<UserView />}></Route>
-      <Route path='/user-profile' element={<UserProfile />}></Route>
-      
      </Routes>
     </div>
   );

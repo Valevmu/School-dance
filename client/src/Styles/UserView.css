@@ -1,17 +1,31 @@
 .left-section {
   display: flex;
   height: 100vh;
-  background-color: blueviolet;
-  margin: auto;
-  border-radius: 20px 20px;
-  width: 30%;
-  display: contents;
-  background-image: linear-gradient(to bottom, #0d6efd, #4a62fd, #6e53fb, #8c3df5, #a712eb);
+  width: 18vw;
+  background: rgb(0,0,0); 
+  background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(64,16,173,1) 50%, rgba(143,0,228,1) 100%);
 }
 .nav-profile{
   width: 100%;
-  height: 250px;
+  height: 25vh;
   background-color: #6e53fb;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar {
+  position: relative;
+  top: 10vh;
+}
+
+.profile-info{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15vh;
 }
 /* .fondo{
   
@@ -35,8 +49,9 @@
   width: auto;
 }
 .fondo{
-  width: 100vh;
-  height: 100vh;
+  width: -webkit-fill-available;
+  height: -webkit-fill-available;
+  display: flex;
 }
 ul {
   list-style-type: none;
