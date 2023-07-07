@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
-
 import { NavbarMUI } from './NavbarMUI';
 import '../Styles/UserView.css'
 import axios from 'axios';
 import { UserProfile } from './UserProfile';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import CategoryIcon from '@mui/icons-material/Category';
+import GroupIcon from '@mui/icons-material/Group';
 
 
 const UserView = (props) => {
@@ -34,9 +36,22 @@ const UserView = (props) => {
       <NavbarMUI />
       <section className='left-section'>
         <ul className='sidebar-menu'>
-          <li onClick={e => handleChange(0)}>Perfil</li>
-          <li onClick={e => handleChange(1)}>Mis clases</li>
-          <li onClick={e => handleChange(2)}>Alumnos</li>
+          <li
+            onClick={e => handleChange(0)}
+            className='item-menu'>
+              <AccountCircleIcon />
+              <span>Perfil</span>
+          </li>
+          <li 
+            onClick={e => handleChange(1)}
+            className='item-menu'>
+              <CategoryIcon />
+              <span>Mis clases</span></li>
+          <li 
+            onClick={e => handleChange(2)}
+            className='item-menu'>
+              <GroupIcon />
+              <span>Alumnos</span></li>
         </ul>
       </section>
       <div className='main-section'>
