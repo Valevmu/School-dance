@@ -46,7 +46,7 @@ const UserView = (props) => {
             onClick={e => handleChange(1)}
             className='item-menu'>
               <CategoryIcon />
-              <span>Mis clases</span></li>
+              <span>Clases</span></li>
           <li 
             onClick={e => handleChange(2)}
             className='item-menu'>

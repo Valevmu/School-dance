@@ -1,4 +1,4 @@
-const Class = require('../models/class.models');
+const Class = require('../models/class.model');
 
 module.exports.findAllClass = (req, res) => {
   Class.find()
@@ -24,7 +24,7 @@ module.exports.findOneClass = (req, res) => {
 module.exports.createNewClass = (req, res) => {
   console.log(req.body)
   Class.create(req.body)
-   .then(newStudent => res.json({class: newClass}))
+   .then(newClass => res.json({class: newClass}))
    .catch(err =>{
     console.log(err)
     res.status(500).json({message:"Something went wrong", err})
